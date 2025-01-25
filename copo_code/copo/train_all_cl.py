@@ -9,7 +9,7 @@ from ray import tune
 if __name__ == "__main__":
     args = get_train_parser().parse_args()
     exp_name = args.exp_name or "TEST"
-    stop = int(200_0000)
+    stop = int(100_0000)
     config = dict(
         # ===== Environmental Setting =====
         # We can grid-search the environmental parameters!
@@ -18,12 +18,9 @@ if __name__ == "__main__":
                 get_rllib_compatible_env(get_change_n_env(MultiAgentParkingLotEnv)),
                 get_rllib_compatible_env(get_change_n_env(MultiAgentIntersectionEnv)),
                 get_rllib_compatible_env(get_change_n_env(MultiAgentTollgateEnv)),
-                get_rllib_compatible_env(get_change_n_env(MultiAgentBottleneckEnv)),
-                get_rllib_compatible_env(get_change_n_env(MultiAgentRoundaboutEnv)),
-                get_rllib_compatible_env(get_change_n_env(MultiAgentMetaDrive)),
             ]
         ),
-        env_config=dict(start_seed=tune.grid_search([5000, 6000, 7000, 8000, 9000, 10000, 11000, 12000])),
+        env_config=5000,
 
         # ===== Resource =====
         # num_workers=1,
