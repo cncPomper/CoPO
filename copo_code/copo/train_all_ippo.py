@@ -21,13 +21,10 @@ if __name__ == "__main__":
             [
                 get_rllib_compatible_env(MultiAgentParkingLotEnv),
                 get_rllib_compatible_env(MultiAgentIntersectionEnv),
-                get_rllib_compatible_env(MultiAgentTollgateEnv),
-                get_rllib_compatible_env(MultiAgentBottleneckEnv),
-                get_rllib_compatible_env(MultiAgentRoundaboutEnv),
-                get_rllib_compatible_env(MultiAgentMetaDrive),
+                get_rllib_compatible_env(MultiAgentTollgateEnv)
             ]
         ),
-        env_config=dict(start_seed=tune.grid_search([5000, 6000, 7000, 8000, 9000, 10000, 11000, 12000]), ),
+        env_config=5000,
 
         # ===== Resource =====
         # So we need 2 CPUs per trial, 0.25 GPU per trial!
